@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Input and Conversion</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        <span id="titleText">Hex to Text Converter</span>
+        <span
+          id="toggleConvert"
+          class="badge bg-info text-dark rounded-pill"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Toggle"
+          role="button"
+          ><i class="bi bi-arrow-left-right"></i
+        ></span>
+      </h1>
+
+      <div class="textarea-container">
+        <textarea
+          id="inputText"
+          placeholder="Enter hex values here..."
+        ></textarea>
+        <span class="clear-icon" id="clearIcon">&times;</span>
+      </div>
+
+      <button id="hexDecode">Convert</button>
+
+      <div id="convertedText" class="result">
+        <div id="groupBtnAction">
+          <span
+            role="button"
+            class="badge bg-secondary"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Open in new tab"
+            id="openInNewTab"
+            ><i class="bi bi-window-plus"></i>
+          </span>
+          <span
+            role="button"
+            class="badge bg-secondary"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Copy"
+            id="copyToClipboard"
+            ><i class="bi bi-copy"></i>
+          </span>
+        </div>
+
+        <span id="convertedTextSpan">Converted text will appear here...</span>
+      </div>
+
+      <!-- <hr /> -->
+    </div>
+    <script src="../scripts/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/popper.min.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,153 @@
+/* html {
+  width: 500px;
+  height: 600px;
+} */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  width: 600px;
+  max-height: 650px;
+  background-color: #f4f4f9;
+}
+.container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+textarea {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+textarea:focus {
+  outline: none; /* Remove default browser outline */
+  border-color: #007bff; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle shadow */
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+button:hover {
+  background-color: #0056b3;
+}
+.result {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+
+  min-width: 64px;
+  position: relative;
+}
+.result span {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+#groupBtnAction {
+  position: absolute;
+  right: 2%;
+  bottom: 4%;
+  display: none;
+}
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  animation: fadeOut 4s forwards;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.textarea-container {
+  position: relative;
+}
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+  field-sizing: content;
+}
+.clear-icon {
+  position: absolute;
+  top: 35%;
+  right: 5px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 16px;
+  color: #888;
+  display: none;
+}
+.textarea-container:hover .clear-icon {
+  display: block;
+}
