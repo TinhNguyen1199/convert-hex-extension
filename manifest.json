@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Caox Extension",
   "version": "1.0",
-  "description": "This is a simple extension that turns the background of the page red.",
+  "description": "This extension simplifies the conversion between hexadecimal strings and plain text",
   "permissions": [
     "contextMenus",
     "activeTab",
@@ -36,5 +36,6 @@
       "resources": ["images/icon-16.png"],
       "matches": ["<all_urls>"]
     }
-  ]
+  ],
+  "author": "Tinh Nguyen"
 }
