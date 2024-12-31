@@ -102,8 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("hexDecode").addEventListener("click", () => {
   const inputText = inputTextEl.value;
-  console.log("inputText", inputText);
-  console.log("!!!", !!inputText);
 
   if (!inputText) {
     return;

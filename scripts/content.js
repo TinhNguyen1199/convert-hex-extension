@@ -40,6 +40,11 @@ function showIcon(selectedText) {
 
     const icon = document.createElement("img");
     icon.src = chrome.runtime.getURL("images/icon-16.png");
+
+    icon.onerror = () => {
+      icon.src = chrome.runtime.getURL("images/icon-48.png");
+    };
+
     icon.style.position = "absolute";
 
     const middleX = rect.left + rect.width / 2;
@@ -265,3 +270,41 @@ function showToast(message, isError = false, duration = 1000) {
   document.body.appendChild(toast);
   setTimeout(() => toast.remove(), duration);
 }
+
+function copyText(text) {
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      showToast("Copied to clipboard!", false, 4000);
+    })
+    .catch((err) => {
+      showToast("Failed to copy text", true);
+      console.error("Failed to copy text:", err);
+    });
+}
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "convert-text-to-hex") {
+    const text = request.text.replace(/\s+/g, "");
+    const result = stringToHex(text);
+
+    copyText(result);
+  } else if (request.action === "convert-hex-to-text") {
+    const text = request.text.replace(/\s+/g, "");
+    const result = hexToString(text);
+
+    copyText(result);
+  } else if (request.action === "open-new-tab") {
+    const text = request.text.replace(/\s+/g, "");
+    const result = hexToString(text);
+    const isValidURL = isValidURLChecker(result);
+
+    if (isValidURL) {
+      window.open(result, "_blank");
+    } else {
+      let url = "http://www.google.com/search?q=" + result;
+      window.open(url, "_blank");
+      // showToast("Invalid URL", true);
+    }
+  }
+});
