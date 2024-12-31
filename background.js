@@ -123,3 +123,17 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     });
   }
 });
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === "openIncognito") {
+    chrome.windows.create(
+      {
+        url: message.url,
+        incognito: true,
+      },
+      (window) => {
+        console.log("Incognito window opened:", window);
+      }
+    );
+  }
+});
