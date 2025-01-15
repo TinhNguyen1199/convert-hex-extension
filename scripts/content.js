@@ -1,5 +1,3 @@
-let preSelectText = false;
-
 document.addEventListener("mouseup", (event) => {
   const selectedText = window.getSelection().toString().trim();
   const existingCard = document.getElementById("custom-card");
@@ -27,12 +25,6 @@ document.addEventListener("mousedown", (event) => {
 });
 
 function showIcon(selectedText) {
-  if (preSelectText !== selectedText) {
-    removeIcon();
-  }
-
-  preSelectText = selectedText;
-
   try {
     const selection = window.getSelection();
     const range = selection.getRangeAt(0);
